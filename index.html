@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IEM Events Portal — Department of CSE (AIML), Institute of Engineering &amp; Management</title>
+  <meta name="description" content="Explore flagship hackathons, deep learning masterclasses, robotics challenges, and cultural festivals at the Department of CSE (AIML), IEM Kolkata. Discover events, register online, and download verified digital passes.">
+  <meta name="keywords" content="IEM Kolkata, CSE AIML, HackIEM, Innovacion, College Tech Fest, Machine Learning Workshops, Robotics Competition">
+  <meta name="theme-color" content="#10163a">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="IEM Events Portal — Dept. of CSE (AIML), Kolkata">
+  <meta property="og:description" content="Register for upcoming hackathons, AI workshops, and the annual tech fest Innovacion.">
+  <meta property="og:image" content="images/hackathon.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="images/logo.png" type="image/png">
+
+  <!-- Modern Google Fonts: Outfit for Display Headings & Plus Jakarta Sans for Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Reading Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Confetti Canvas for Celebratory Registrations -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- ===================== HEADER / NAVIGATION ===================== -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand" aria-label="IEM CSE AIML Events Home">
+        <div class="brand-logo-wrap">
+          <img src="images/logo.png" alt="IEM Logo" class="brand-logo" width="32" height="32">
+        </div>
+        <div class="brand-text">
+          <strong>IEM Kolkata</strong>
+          <span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+            Dept. of CSE (AIML)
+          </span>
+        </div>
+      </a>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#register">Register</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#highlights">AI Lab</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- My Registered Passes Drawer Trigger -->
+        <button class="tickets-btn" id="myTicketsBtn" title="View my registered event passes" aria-label="View My Passes">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
+            <path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/>
+          </svg>
+          <span>My Passes</span>
+          <span class="ticket-badge" id="ticketCount">0</span>
+        </button>
+
+        <!-- Theme Switcher (Dark / Light) -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch theme mode" title="Toggle dark / light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Navigation Toggle -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero" id="home">
+      <!-- Interactive AI Neural Network Canvas -->
+      <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+      <div class="hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker-badge">
+            <span class="pulse-dot"></span>
+            <span>Registrations Open · Autumn Fest 2026–27</span>
+          </div>
+
+          <h1>
+            Empowering Minds with<br>
+            <span class="gradient-text">Artificial Intelligence</span> &amp; Innovation
+          </h1>
+
+          <p class="hero-lead">
+            Welcome to the flagship event portal of the Department of CSE (AIML),
+            Institute of Engineering &amp; Management, Kolkata. Experience 24-hour hackathons,
+            deep learning bootcamps, autonomous robotics, and the grand annual fest Innovacion.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#events" class="btn btn-primary">
+              <span>Explore All Events</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#register" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Instant Registration</span>
+            </a>
+            <button class="btn btn-ghost" id="brochureBtn" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Fest Brochure</span>
+            </button>
+          </div>
+
+          <!-- Live Key Stats Counter Grid -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="1500">1,500+</span>
+              <span class="stat-label">Participants Expected</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="150000">₹1.5 Lakhs</span>
+              <span class="stat-label">Prize Pool &amp; Grants</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="6">06</span>
+              <span class="stat-label">Flagship Challenges</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Verified Digital Passes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Glassmorphic Next Event Countdown Card -->
+        <aside class="countdown-card" aria-live="polite">
+          <div class="countdown-top">
+            <span class="countdown-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+              Next Upcoming Event
+            </span>
+            <span class="prize-pill">⭐ Verified Certificate</span>
+          </div>
+
+          <h2 class="countdown-title" id="cdTitle">Loading event schedule…</h2>
+          <p class="countdown-meta" id="cdMeta">Checking department schedule…</p>
+
+          <div class="countdown-grid" id="countdown">
+            <div class="countdown-box">
+              <span class="countdown-digit" id="cdDays">00</span>
+              <span class="countdown-unit">Days</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-digit" id="cdHours">00</span>
+              <span class="countdown-unit">Hours</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-digit" id="cdMins">00</span>
+              <span class="countdown-unit">Mins</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-digit" id="cdSecs">00</span>
+              <span class="countdown-unit">Secs</span>
+            </div>
+          </div>
+
+          <div class="countdown-actions">
+            <p class="live-clock">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Kolkata IST: <time id="clock">--:--:--</time>
+            </p>
+            <button class="btn btn-sm btn-ghost" id="addToCalBtn" type="button" title="Add next event to Google Calendar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Add to Calendar</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== FEST SCHEDULE ROADMAP ===================== -->
+    <section class="fest-roadmap" id="schedule">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Semester Roadmap</span>
+          <h2>Flagship Fest Timeline</h2>
+          <p>Key milestone stages organized across the odd semester 2026–27 calendar.</p>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-card">
+            <span class="roadmap-day-tag">Phase 01 · October</span>
+            <h3>Cultural &amp; Community Kickoff</h3>
+            <p>Sharod Sandhya cultural gathering celebrating performing arts and pre-fest camaraderie across all B.Tech batches.</p>
+          </div>
+          <div class="roadmap-card">
+            <span class="roadmap-day-tag">Phase 02 · November</span>
+            <h3>Applied Robotics &amp; Hackathon</h3>
+            <p>Intensive 24-hr HackIEM sprint and autonomous line-follower challenges in the IoT and AIML labs.</p>
+          </div>
+          <div class="roadmap-card">
+            <span class="roadmap-day-tag">Phase 03 · Late November</span>
+            <h3>Innovacion Techfest &amp; Masterclasses</h3>
+            <p>Annual department grand finale featuring technical paper presentations, gaming arenas, and industry keynote speakers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EVENTS SECTION ===================== -->
+    <section class="section" id="events">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Explore &amp; Participate</span>
+          <h2>Upcoming Department Events</h2>
+          <p>Browse through scheduled hackathons, seminars, and challenges. Filter by category, search by topic, or switch views.</p>
+        </div>
+
+        <!-- Advanced Controls: Search, Category Chips & View Toggle -->
+        <div class="events-controls">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="eventSearch" placeholder="Search events by title, keyword, or venue..." aria-label="Search events">
+          </div>
+
+          <div class="filters-wrap" id="eventFilters" role="group" aria-label="Filter events by category">
+            <button class="chip is-active" data-filter="all">
+              <span>All</span>
+              <span class="chip-count" id="count-all">6</span>
+            </button>
+            <button class="chip" data-filter="technical">
+              <span>Technical</span>
+              <span class="chip-count" id="count-technical">3</span>
+            </button>
+            <button class="chip" data-filter="workshop">
+              <span>Workshops</span>
+              <span class="chip-count" id="count-workshop">1</span>
+            </button>
+            <button class="chip" data-filter="cultural">
+              <span>Cultural</span>
+              <span class="chip-count" id="count-cultural">1</span>
+            </button>
+            <button class="chip" data-filter="lecture">
+              <span>Lectures</span>
+              <span class="chip-count" id="count-lecture">1</span>
+            </button>
+          </div>
+
+          <div class="view-switcher" role="group" aria-label="Switch event view layout">
+            <button class="view-btn is-active" id="viewGridBtn" title="Grid View" aria-label="Grid View">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </button>
+            <button class="view-btn" id="viewTimelineBtn" title="Timeline / List View" aria-label="Timeline View">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Rendered dynamically by js/script.js -->
+        <div class="events-container" id="eventList">
+          <!-- Populated from EVENTS array -->
+        </div>
+
+        <div class="empty-search-state" id="eventEmpty" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6"/>
+          </svg>
+          <h3>No events found</h3>
+          <p>We couldn't find any events matching your search criteria. Try a different keyword or reset filters.</p>
+          <button class="btn btn-sm btn-ghost" id="resetFiltersBtn">Reset Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REGISTRATION SECTION ===================== -->
+    <section class="section section-tinted" id="register">
+      <div class="wrap form-grid">
+        <div class="reg-info">
+          <div class="section-head" style="text-align: left; margin-bottom: 1.5rem;">
+            <span class="section-kicker">Secure Your Spot</span>
+            <h2>Register for an Event</h2>
+            <p>
+              Open to all enrolled B.Tech students of IEM Kolkata. Submitting this form generates an instant verified digital pass and confirms your seat.
+            </p>
+          </div>
+
+          <div class="registration-benefits">
+            <h3 style="font-size: 1.15rem; margin-bottom: 1.25rem;">Why Register Online?</h3>
+            <ul class="benefit-list">
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Instant E-Pass with QR Code</strong>
+                  <span>Immediate access pass with verified department watermark, ready to save or print.</span>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Official Participation Certificate</strong>
+                  <span>Receive institutional credentials recognized for academic activity points (MAR).</span>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Team Coordination &amp; Mentorship</strong>
+                  <span>Dedicated Discord/WhatsApp group access for problem statements and lab mentor assistance.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Registration Interactive Form -->
+        <div class="registration-form-wrap">
+          <div class="form-stepper">
+            <div class="step-indicator is-active" id="step-1-ind">
+              <span class="step-circle">1</span>
+              <span>Personal Details</span>
+            </div>
+            <div class="step-indicator" id="step-2-ind">
+              <span class="step-circle">2</span>
+              <span>Academic &amp; Event</span>
+            </div>
+          </div>
+
+          <form class="form" id="regForm" novalidate>
+            <!-- Field: Student Name -->
+            <div class="field">
+              <label for="studentName">
+                <span>Student Full Name</span>
+                <small class="error-hint" style="color:var(--text-light); font-weight:normal;">As per college ID</small>
+              </label>
+              <input type="text" id="studentName" name="studentName" placeholder="e.g. Ananya Sen" autocomplete="name" required>
+              <small class="error-text" id="err-studentName"></small>
+            </div>
+
+            <!-- Field Row: Roll No & Department -->
+            <div class="field-row">
+              <div class="field">
+                <label for="rollNo">IEM Roll Number</label>
+                <input type="text" id="rollNo" name="rollNo" inputmode="numeric" placeholder="10-digit roll no. (e.g. 1202200201)" maxlength="10" required>
+                <small class="error-text" id="err-rollNo"></small>
+              </div>
+
+              <div class="field">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                  <option value="">Select Department</option>
+                  <option value="CSE (AIML)">CSE (AIML)</option>
+                  <option value="CSE">CSE</option>
+                  <option value="CSBS">CSBS</option>
+                  <option value="IT">IT</option>
+                  <option value="ECE">ECE</option>
+                  <option value="EE">EE</option>
+                  <option value="ME">ME</option>
+                  <option value="CE">CE</option>
+                </select>
+                <small class="error-text" id="err-department"></small>
+              </div>
+            </div>
+
+            <!-- Field Row: Email & Phone -->
+            <div class="field-row">
+              <div class="field">
+                <label for="email">College / Personal Email</label>
+                <input type="email" id="email" name="email" placeholder="student@iem.edu.in" autocomplete="email" required>
+                <small class="error-text" id="err-email"></small>
+              </div>
+
+              <div class="field">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel" required>
+                <small class="error-text" id="err-phone"></small>
+              </div>
+            </div>
+
+            <!-- Field: Gender Radio Group -->
+            <div class="field">
+              <label>Gender</label>
+              <div class="gender-radio-grid" id="genderGroup">
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="Female">
+                  <span>Female</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="Male">
+                  <span>Male</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="Other">
+                  <span>Other</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="Prefer not to say">
+                  <span>Decline</span>
+                </label>
+              </div>
+              <small class="error-text" id="err-gender"></small>
+            </div>
+
+            <!-- Field: Event Selection Dropdown -->
+            <div class="field">
+              <label for="eventSelect">Select Event to Attend</label>
+              <select id="eventSelect" name="eventSelect" required>
+                <option value="">-- Choose an upcoming event --</option>
+                <!-- Populated dynamically by js/script.js -->
+              </select>
+              <small class="error-text" id="err-eventSelect"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="regSubmitBtn" style="width: 100%; margin-top: 0.5rem;">
+              <span>Confirm Registration &amp; Generate Pass</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+
+            <p class="form-status" id="regStatus" role="status" aria-live="polite" style="margin-top: 1rem; text-align: center;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY SECTION ===================== -->
+    <section class="section" id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Visual Memories</span>
+          <h2>Campus Moments &amp; Gallery</h2>
+          <p>Highlights from past hackathons, tech exhibitions, and department celebrations. Click any photo for high-resolution lightbox view.</p>
+        </div>
+
+        <div class="gallery-filters" id="galleryFilters">
+          <button class="chip is-active" data-gfilter="all">All Photos</button>
+          <button class="chip" data-gfilter="hackathon">HackIEM</button>
+          <button class="chip" data-gfilter="techfest">Innovacion Fest</button>
+          <button class="chip" data-gfilter="workshop">AI Workshops</button>
+          <button class="chip" data-gfilter="cultural">Cultural Nights</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <figure class="gallery-card" data-category="hackathon" data-index="0" tabindex="0">
+            <img src="images/hackathon.jpg" alt="Students coding late night during HackIEM Hackathon" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag-pill">Hackathon</span>
+              <h3>HackIEM 2025: 24-Hour AI Sprint</h3>
+              <p>Students collaborating on computer vision and NLP problem statements in the AIML innovation lab.</p>
+            </div>
+          </figure>
+
+          <figure class="gallery-card" data-category="techfest" data-index="1" tabindex="0">
+            <img src="images/tech-fest.jpg" alt="Crowd at Innovacion annual tech fest opening" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag-pill">Tech Fest</span>
+              <h3>Innovacion: Annual Fest Inauguration</h3>
+              <p>Grand opening ceremony with distinguished academic dignitaries and over 800 student delegates.</p>
+            </div>
+          </figure>
+
+          <figure class="gallery-card" data-category="workshop" data-index="2" tabindex="0">
+            <img src="images/workshop.jpg" alt="Hands-on deep learning workshop in the AIML lab" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag-pill">Workshop</span>
+              <h3>Deep Learning with PyTorch Bootcamp</h3>
+              <p>Hands-on session covering neural networks, tensor operations, and model deployment on cloud GPUs.</p>
+            </div>
+          </figure>
+
+          <figure class="gallery-card" data-category="cultural" data-index="3" tabindex="0">
+            <img src="images/cultural-night.jpg" alt="Stage musical performance during cultural night" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag-pill">Cultural</span>
+              <h3>Sharod Sandhya Department Gala</h3>
+              <p>Enthralling live musical performances, drama, and acoustic acts organized before the festive break.</p>
+            </div>
+          </figure>
+
+          <figure class="gallery-card" data-category="hackathon" data-index="4" tabindex="0">
+            <img src="images/robotics.jpg" alt="Autonomous line follower robot challenge" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag-pill">Robotics</span>
+              <h3>Autonomous Line-Follower Challenge</h3>
+              <p>Custom-built micro-controller rovers competing on high-speed precision obstacle tracks.</p>
+            </div>
+          </figure>
+
+          <figure class="gallery-card" data-category="workshop" data-index="5" tabindex="0">
+            <img src="images/guest-lecture.jpg" alt="Industry guest lecture keynote in seminar hall" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag-pill">Keynote</span>
+              <h3>Industry AI Research Keynote</h3>
+              <p>Leading research scientists sharing advances in Multimodal Foundation Models and Indic AI.</p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AI LAB & HIGHLIGHTS SECTION ===================== -->
+    <section class="section section-tinted" id="highlights">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Department Excellence</span>
+          <h2>World-Class AI Laboratories &amp; Ecosystem</h2>
+          <p>State-of-the-art facilities empowering students to transform theoretical computer science into deployable solutions.</p>
+        </div>
+
+        <div class="ai-features-grid">
+          <div class="ai-feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3>GPU Compute Lab</h3>
+            <p>Equipped with high-performance NVIDIA RTX workstations and cluster nodes configured for training transformers and deep networks.</p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+            </div>
+            <h3>IoT &amp; Robotics Hub</h3>
+            <p>Microcontroller development boards, LIDAR sensor modules, and automated testing arenas for autonomous hardware integration.</p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Research &amp; Patent Cell</h3>
+            <p>Active mentorship leading to peer-reviewed IEEE publications, national hackathon podium finishes, and startup incubation grants.</p>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Industry Mentorship</h3>
+            <p>Direct masterclasses and code-reviews conducted by alumni engineers working across Google, Microsoft, Amazon, and IBM.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ SECTION ===================== -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-kicker">Got Questions?</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about eligibility, event fees, teams, and certification.</p>
+        </div>
+
+        <div class="faq-wrap">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Who is eligible to participate in these events?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>All undergraduate B.Tech students across IEM (CSE AIML, CSE, IT, CSBS, ECE, EE, ME, CE) are eligible to participate. Cross-departmental collaboration is strongly encouraged in team events.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Is there any entry fee for departmental hackathons and workshops?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>No, all events organized by the Department of CSE (AIML) are completely free for students. Lab compute, kits, and mentorship are provided with department sponsorship.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How do team registrations work for HackIEM?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Teams can consist of 2 to 4 members. Each individual team member registers via this portal to obtain their individual digital pass. Team leads specify their team name during on-spot check-in at the AIML lab.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will all participants receive verified certificates?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Every registered student who checks in with their digital pass receives a verified e-certificate co-signed by the Head of Department and Faculty Coordinator, eligible for MAR points.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What hardware or software do I need to bring for workshops?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>For workshops, please bring a laptop with Google Chrome or a modern browser installed. We provide cloud Jupyter notebooks and lab GPU access over high-speed campus Wi-Fi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How do I retrieve or reprint my digital event pass?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>You can click the "My Passes" button in the top navigation bar at any time to view all your registered event tickets, complete with the QR code and download options.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT US & COORDINATORS ===================== -->
+    <section class="section section-tinted" id="about">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <div class="section-head" style="text-align: left; margin-bottom: 1.5rem;">
+            <span class="section-kicker">Academic Excellence</span>
+            <h2>Department of CSE (AIML)</h2>
+          </div>
+          <p>
+            The Department of Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning)
+            at the Institute of Engineering &amp; Management (IEM), Kolkata, provides an innovative 4-year
+            B.Tech curriculum uniting computer architecture, mathematics, deep learning, NLP, and intelligent robotics.
+          </p>
+          <p>
+            Events, workshops, and hackathons are stewarded by an energetic student organizing committee
+            working under dedicated faculty advisory to cultivate industry-ready technical skills and leadership.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <a href="#contact" class="btn btn-ghost">Connect with Faculty &amp; Leads</a>
+          </div>
+        </div>
+
+        <div class="coordinators-grid">
+          <div class="coord-card">
+            <div class="coord-avatar">SB</div>
+            <dl class="coord-details">
+              <dt>Faculty Coordinator</dt>
+              <dd>Dr. Sudipta Bhattacharya<span>Associate Professor, CSE (AIML)</span></dd>
+            </dl>
+          </div>
+
+          <div class="coord-card">
+            <div class="coord-avatar">RD</div>
+            <dl class="coord-details">
+              <dt>Student Convenor</dt>
+              <dd>Ritwika Das<span>3rd Year, CSE (AIML)</span></dd>
+            </dl>
+          </div>
+
+          <div class="coord-card">
+            <div class="coord-avatar">AM</div>
+            <dl class="coord-details">
+              <dt>Technical Lead</dt>
+              <dd>Arnab Mukherjee<span>4th Year, CSE (AIML)</span></dd>
+            </dl>
+          </div>
+
+          <div class="coord-card">
+            <div class="coord-avatar">SR</div>
+            <dl class="coord-details">
+              <dt>Cultural Secretary</dt>
+              <dd>Sneha Roy<span>2nd Year, CSE (AIML)</span></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT & CAMPUS GUIDE ===================== -->
+    <section class="section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-card-box">
+          <div class="section-head" style="text-align: left; margin-bottom: 1.5rem;">
+            <span class="section-kicker">Find Us</span>
+            <h2>Campus Location &amp; Helpdesk</h2>
+            <p>Have inquiries regarding registration, event schedule, or faculty sponsorship? Get in touch.</p>
+          </div>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Campus Venue</strong>
+                <span>Gurukul Campus, Y-12, Block EP, Sector V, Salt Lake, Kolkata 700091</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Official Email</strong>
+                <a href="mailto:events.aiml@iem.edu.in">events.aiml@iem.edu.in</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Department Helpline</strong>
+                <a href="tel:+913323572059">+91 33 2357 2059 (Ext. 402)</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="contact-info-text">
+                <strong>Office Timings</strong>
+                <span>Monday – Friday: 10:00 AM – 5:00 PM IST</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="https://maps.google.com/?q=Institute+of+Engineering+and+Management+Gurukul+Campus+Kolkata" target="_blank" rel="noopener" class="btn btn-sm btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <span>Open in Google Maps (Sector V)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feedback Form with Live Validation -->
+        <div class="feedback-box">
+          <h3 style="margin-bottom: 0.5rem;">Send Suggestions &amp; Feedback</h3>
+          <p style="font-size: 0.92rem; margin-bottom: 1.5rem;">Have questions or want to propose a new student club workshop? Drop us a note.</p>
+
+          <form class="form" id="feedbackForm" novalidate>
+            <div class="field">
+              <label for="fbName">Your Name</label>
+              <input type="text" id="fbName" name="fbName" placeholder="e.g. Suman Dey" required>
+              <small class="error-text" id="err-fbName"></small>
+            </div>
+
+            <div class="field">
+              <label for="fbEmail">Your Email Address</label>
+              <input type="email" id="fbEmail" name="fbEmail" placeholder="suman@gmail.com" required>
+              <small class="error-text" id="err-fbEmail"></small>
+            </div>
+
+            <div class="field">
+              <label for="fbMessage">Message / Feedback</label>
+              <textarea id="fbMessage" name="fbMessage" rows="4" placeholder="Tell us what event you'd like to see next or share questions..."></textarea>
+              <small class="error-text" id="err-fbMessage"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="fbSubmitBtn">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+            <p class="form-status" id="fbStatus" role="status" aria-live="polite" style="margin-top: 1rem;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <strong>Institute of Engineering &amp; Management, Kolkata</strong>
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.88rem; max-width: 45ch;">
+            Department of Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning).
+            Affiliated to MAKAUT, approved by AICTE, accredited by NAAC with Grade 'A'.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Navigation</h4>
+          <ul>
+            <li><a href="#events">Upcoming Events</a></li>
+            <li><a href="#schedule">Semester Roadmap</a></li>
+            <li><a href="#register">Register Online</a></li>
+            <li><a href="#gallery">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Student Support</h4>
+          <ul>
+            <li><a href="#highlights">AI Research Labs</a></li>
+            <li><a href="#faq">Event FAQs</a></li>
+            <li><a href="#about">Coordinators Team</a></li>
+            <li><a href="#contact">Campus Helpline</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Department of CSE (AIML), Institute of Engineering &amp; Management, Kolkata.</p>
+        <p>Built with modern Vanilla HTML5, CSS3, &amp; JavaScript for IT Workshop (PCCCS382).</p>
+        <a href="#top" class="back-top" aria-label="Scroll back to top">
+          <span>Back to top</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== FLOATING BACK TO TOP BUTTON ===================== -->
+  <button class="floating-top-btn" id="floatingTopBtn" aria-label="Scroll to top of page">
+    <svg viewBox="0 0 36 36">
+      <circle class="progress-ring-circle" id="progressRing" cx="18" cy="18" r="16" stroke-dasharray="100 100" stroke-dashoffset="100"></circle>
+    </svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- ===================== QUICK-VIEW EVENT MODAL ===================== -->
+  <div class="modal-overlay" id="eventModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close event details modal">&times;</button>
+      <img src="images/hackathon.jpg" alt="" class="modal-header-img" id="modalImg">
+      <div class="modal-content">
+        <span class="category-tag tag-technical" id="modalCategory">Technical</span>
+        <h2 id="modalTitle" style="margin-top: 0.5rem;">Event Title</h2>
+        <p id="modalDesc" style="color: var(--text-muted);"></p>
+
+        <div class="modal-meta-grid">
+          <div class="modal-meta-item">
+            <strong>Date &amp; Time</strong>
+            <span id="modalDate">--</span>
+          </div>
+          <div class="modal-meta-item">
+            <strong>Campus Venue</strong>
+            <span id="modalVenue">--</span>
+          </div>
+          <div class="modal-meta-item">
+            <strong>Prize / Incentives</strong>
+            <span id="modalPrize">--</span>
+          </div>
+          <div class="modal-meta-item">
+            <strong>Team Size &amp; Format</strong>
+            <span id="modalTeam">--</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-primary" id="modalRegisterBtn" style="flex: 1;">
+            <span>Register for this Event</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button class="btn btn-ghost" id="modalCalBtn">Add to Calendar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== DIGITAL E-TICKET PASS MODAL ===================== -->
+  <div class="modal-overlay" id="ticketModal" role="dialog" aria-modal="true" aria-labelledby="passEventName">
+    <div class="ticket-pass-modal">
+      <button class="modal-close-btn" id="ticketCloseBtn" aria-label="Close pass modal">&times;</button>
+      <div class="ticket-pass" id="ticketPassElement">
+        <div class="ticket-hologram" aria-hidden="true"></div>
+        <div class="ticket-header">
+          <span class="ticket-dept">IEM Kolkata · CSE (AIML)</span>
+          <span class="ticket-id" id="passTicketId">TKT-8291</span>
+        </div>
+        <h2 class="ticket-event-name" id="passEventName">HackIEM 2026</h2>
+
+        <div class="ticket-info-grid">
+          <div class="ticket-item">
+            <label>Attendee Name</label>
+            <strong id="passStudentName">Ananya Sen</strong>
+          </div>
+          <div class="ticket-item">
+            <label>Roll Number</label>
+            <strong id="passRollNo">1202200201</strong>
+          </div>
+          <div class="ticket-item">
+            <label>Department</label>
+            <strong id="passDept">CSE (AIML)</strong>
+          </div>
+          <div class="ticket-item">
+            <label>Date &amp; Venue</label>
+            <strong id="passDateTime">16 Oct 2026 · Lab</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticket-stub">
+        <div class="ticket-barcode-lines">
+          <div class="barcode-sim">||| | |||| | ||||| |</div>
+          <div class="barcode-text">Verified Electronic Pass • Present at Entry Gate</div>
+        </div>
+        <div class="ticket-qr-wrap" id="passQrWrap" title="Verified QR Code">
+          <!-- Dynamically generated SVG QR Code -->
+        </div>
+      </div>
+
+      <div class="ticket-pass-actions">
+        <button class="btn btn-primary btn-sm" id="printTicketBtn" style="flex:1;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Download / Print Pass</span>
+        </button>
+        <button class="btn btn-ghost btn-sm" id="closePassModalBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MY PASSES DRAWER MODAL ===================== -->
+  <div class="modal-overlay" id="myTicketsModal" role="dialog" aria-modal="true" aria-labelledby="myTicketsTitle">
+    <div class="modal-card" style="max-width: 600px;">
+      <button class="modal-close-btn" id="myTicketsCloseBtn" aria-label="Close My Tickets">&times;</button>
+      <div class="modal-content">
+        <h2 id="myTicketsTitle" style="margin-bottom: 0.5rem;">My Registered Passes</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">All your event registrations saved locally on this device.</p>
+        <div id="myTicketsList" style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Dynamically filled with student's saved passes -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FULLSCREEN LIGHTBOX MODAL ===================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <button class="modal-close-btn" id="lightboxCloseBtn" style="top:2rem; right:2rem;" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous Photo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="lightbox-content">
+      <img src="images/hackathon.jpg" alt="" class="lightbox-img" id="lightboxImg">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next Photo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <!-- ===================== FLOATING TOAST CONTAINER ===================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+</body>
+</html>
